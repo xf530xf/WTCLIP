@@ -1,18 +1,7 @@
 # WTCLIP
 WTCLIP: Wavelet-Guided CLIP for Fine-Grained Weakly Supervised Segmentation with Edge Refinement
 
-I'm uploading our work and I believe it will be available to you all soon.
 
-
-
-## Frozen CLIP: A Strong Backbone for Weakly Supervised Semantic Segmentation (CVPR 2024 Highlight)
-
-Code of CVPR 2024 paper: Frozen CLIP: A Strong Backbone for Weakly Supervised Semantic Segmentation.
-
-[[Paper]](https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_Frozen_CLIP_A_Strong_Backbone_for_Weakly_Supervised_Semantic_Segmentation_CVPR_2024_paper.pdf) [[Project]](https://github.com/zbf1991/WeCLIP) 
-
-
-This Project heavily relies on the [[AFA]](https://github.com/rulixiang/afa) and [[CLIP-ES]](https://github.com/linyq2117/CLIP-ES). Many thanks for their great work!
 ## Preparations
 
 ### VOC dataset
@@ -93,9 +82,9 @@ For COCO, Modify them in `configs/coco_attn_reg.yaml`.
 To start training, just run the following code.
 ```bash
 # train on voc
-python scripts/dist_clip_voc.py --config your/path/WeCLIP/configs/voc_attn_reg.yaml
+python scripts/dist_clip_voc.py --config your/path/WTCLIP/configs/voc_attn_reg.yaml
 # train on coco
-python scripts/dist_clip_coco.py --config your/path/WeCLIP/configs/coco_attn_reg.yaml
+python scripts/dist_clip_coco.py --config your/path/WTCLIP/configs/coco_attn_reg.yaml
 ```
 
 ### Inference
@@ -104,46 +93,9 @@ To inference, first modify the inference model path `--model_path` in `test_msc_
 Then, run the following code:
 ```bash
 # inference on voc
-python test_msc_flip_voc.py --model_path your/inference/model/path/WeCLIP_model_iter_30000.pth
+python test_msc_flip_voc.py --model_path your/inference/model/path/WTCLIP_model_iter_30000.pth
 # inference on coco
-python test_msc_flip_coco.py --model_path your/inference/model/path/WeCLIP_model_iter_80000.pth
+python test_msc_flip_coco.py --model_path your/inference/model/path/WTCLIP_model_iter_80000.pth
 ``` 
 
-
-## Citation
-Please kindly cite our paper if you find it's helpful in your work.
-
-``` bibtex
-@InProceedings{Zhang_2024_CVPR,
-    author    = {Zhang, Bingfeng and Yu, Siyue and Wei, Yunchao and Zhao, Yao and Xiao, Jimin},
-    title     = {Frozen CLIP: A Strong Backbone for Weakly Supervised Semantic Segmentation},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2024},
-    pages     = {3796-3806}
-}
-```
-
-## Ackonwledge
-Many thanks for AFA: [[paper]](https://arxiv.org/abs/2203.02664) [[Project]](https://rulixiang.github.io/afa)
-``` bibtex
-@inproceedings{ru2022learning,
-    title = {Learning Affinity from Attention: End-to-End Weakly-Supervised Semantic Segmentation with Transformers},
-    author = {Lixiang Ru and Yibing Zhan and Baosheng Yu and Bo Du}
-    booktitle = {CVPR},
-    year = {2022},
-  }
-```
-
-Many thanks for CLIP-ES: [[paper]](https://openaccess.thecvf.com/content/CVPR2023/html/Lin_CLIP_Is_Also_an_Efficient_Segmenter_A_Text-Driven_Approach_for_CVPR_2023_paper.html) [[Project]](https://github.com/linyq2117/CLIP-ES)
-``` bibtex
-@InProceedings{Lin_2023_CVPR,
-    author    = {Lin, Yuqi and Chen, Minghao and Wang, Wenxiao and Wu, Boxi and Li, Ke and Lin, Binbin and Liu, Haifeng and He, Xiaofei},
-    title     = {CLIP Is Also an Efficient Segmenter: A Text-Driven Approach for Weakly Supervised Semantic Segmentation},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2023},
-    pages     = {15305-15314}
-}
-```
  
