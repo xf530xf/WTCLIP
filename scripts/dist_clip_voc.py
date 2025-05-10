@@ -20,12 +20,12 @@ from utils import evaluate
 from utils.AverageMeter import AverageMeter
 from utils.camutils import cams_to_affinity_label
 from utils.optimizer import PolyWarmupAdamW
-from WeCLIP_model.model_attn_aff_voc import WeCLIP
+from WTCLIP_model.model_attn_aff_voc import WTCLIP
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--config",
-                    default='/data2/XF/KeYan/WeCLIP/configs/voc_attn_reg.yaml',
+                    default='/data2/XF/KeYan/WTCLIP/configs/voc_attn_reg.yaml',
                     type=str,
                     help="config")
 parser.add_argument("--seg_detach", action="store_true", help="detach seg")
@@ -181,7 +181,7 @@ def train(cfg):
                             pin_memory=False,
                             drop_last=False)
 
-    WeCLIP_model = WeCLIP(
+    WTCLIP_model = WTCLIP(
         num_classes=cfg.dataset.num_classes,
         clip_model=cfg.clip_init.clip_pretrain_path,
         embedding_dim=cfg.clip_init.embedding_dim,
@@ -189,9 +189,9 @@ def train(cfg):
         dataset_root_path=cfg.dataset.root_dir,
         device='cuda'
     )
-    logging.info('\nNetwork config: \n%s'%(WeCLIP_model))
-    param_groups = WeCLIP_model.get_param_groups()
-    WeCLIP_model.cuda()
+    logging.info('\nNetwork config: \n%s'%(WTCLIP_model))
+    param_groups = WTCLIP_model.get_param_groups()
+    WTCLIP_model.cuda()
 
 
     mask_size = int(cfg.dataset.crop_size // 16)
@@ -244,7 +244,7 @@ def train(cfg):
             train_loader_iter = iter(train_loader)
             img_name, inputs, cls_labels, img_box = next(train_loader_iter)
 
-        segs, cam, attn_pred = WeCLIP_model(inputs.cuda(), img_name)
+        segs, cam, attn_pred = WTCLIP_model(inputs.cuda(), img_name)
 
         pseudo_label = cam
 
@@ -284,11 +284,11 @@ def train(cfg):
 
         
         if (n_iter + 1) % cfg.train.eval_iters == 0:
-            ckpt_name = os.path.join(cfg.work_dir.ckpt_dir, "WeCLIP_model_iter_%d.pth"%(n_iter+1))
+            ckpt_name = os.path.join(cfg.work_dir.ckpt_dir, "WTCLIP_model_iter_%d.pth"%(n_iter+1))
             logging.info('Validating...')
             if (n_iter + 1) > 0:   # 26000
-                torch.save(WeCLIP_model.state_dict(), ckpt_name)
-            seg_score, cam_score = validate(model=WeCLIP_model, data_loader=val_loader, cfg=cfg)
+                torch.save(WTCLIP_model.state_dict(), ckpt_name)
+            seg_score, cam_score = validate(model=WTCLIP_model, data_loader=val_loader, cfg=cfg)
             logging.info("cams score:")
             logging.info(cam_score)
             logging.info("segs score:")
