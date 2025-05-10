@@ -52,8 +52,8 @@ To generate VOC style segmentation labels for COCO dataset, you could use the sc
 ### Create and activate conda environment
 
 ```bash
-conda create --name py38 python=3.8
-conda activate py38
+conda create --name wtclip python=3.10
+conda activate wtclip
 pip install -r requirments.txt
 ```
 
