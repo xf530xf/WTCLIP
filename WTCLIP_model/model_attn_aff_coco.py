@@ -9,7 +9,7 @@ from clip.clip_tool import perform_single_coco_cam, generate_cam_label, generate
 import os
 from torchvision.transforms import Compose, Normalize
 from .Decoder.TransDecoder import DecoderTransformer
-from WeCLIP_model.PAR import PAR
+from WTCLIP_model.PAR import PAR
 
 
 def Normalize_clip():
@@ -53,7 +53,7 @@ def _refine_cams(ref_mod, images, cams, valid_key):
     return refined_label.squeeze(0)
 
 
-class WeCLIP(nn.Module):
+class WTCLIP(nn.Module):
     def __init__(self, num_classes=None, clip_model=None, embedding_dim=256, in_channels=512, dataset_root_path=None, device='cuda'):
         super().__init__()
         self.num_classes = num_classes
