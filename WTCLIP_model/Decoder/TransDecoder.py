@@ -6,8 +6,8 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 import clip.myAtt as myAtt
-# from WeCLIP_model.Decoder.PGM import PromptGenBlock,SMFA ,FRFN
-from WeCLIP_model.Decoder.PGM import DepthwiseSeparableConvWithWTConv2d
+# from WTCLIP_model.Decoder.PGM import PromptGenBlock,SMFA ,FRFN
+from WTCLIP_model.Decoder.PGM import DepthwiseSeparableConvWithWTConv2d
 
 class AttentionPool2d(nn.Module):
     def __init__(self, spacial_dim: int, embed_dim: int, num_heads: int, output_dim: int = None):
