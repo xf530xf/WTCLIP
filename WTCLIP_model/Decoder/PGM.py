@@ -107,8 +107,6 @@ from torch import nn
 from functools import partial
 import torch.nn.functional as F
 
-
-# 论文地址 https://arxiv.org/pdf/2407.05848
 def create_wavelet_filter(wave, in_size, out_size, type=torch.float):
     w = pywt.Wavelet(wave)
     dec_hi = torch.tensor(w.dec_hi[::-1], dtype=type)
