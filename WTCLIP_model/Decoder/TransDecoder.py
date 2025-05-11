@@ -109,9 +109,8 @@ class DecoderTransformer(nn.Module):
         self.transformer = Transformer(width, layers, heads)
         # self.dropout = nn.Dropout2d(0.1)
         self.linear_pred = nn.Conv2d(width, output_dim, kernel_size=1)
-#######################################################
         self.wtconv = DepthwiseSeparableConvWithWTConv2d(in_channels=width, out_channels=width)
-###########################################################
+
 
     def forward(self, x: torch.Tensor):
         b, c, h, w = x.shape
