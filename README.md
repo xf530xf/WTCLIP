@@ -102,6 +102,12 @@ Then, run the following code:
 python test_msc_flip_voc.py --model_path your/inference/model/path/WTCLIP_model_iter_30000.pth
 # inference on coco
 python test_msc_flip_coco.py --model_path your/inference/model/path/WTCLIP_model_iter_80000.pth
-``` 
+```
+
+<div align="center">
+<img src="figure/ablation.png" style="width: 100%;height: 100%">
+</div>
+
+<p align="center"><b><font size="70"></font></b></p>
 
  
