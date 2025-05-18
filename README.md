@@ -1,10 +1,7 @@
 # WTCLIP: Wavelet-Guided CLIP for Fine-Grained Weakly Supervised Segmentation with Edge Refinement
 
 
-<span style="color: red; font-size: 2em;">We sincerely thank each reviewer !</span>
-
-
-# <span style="color: red; font-size: 1.5em;">We sincerely thank each reviewer !</span>
+# <span style="color: red; font-size: 1.5em;">We sincerely thank all reviewers !</span>
 
 
 
