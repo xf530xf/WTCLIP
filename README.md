@@ -76,9 +76,9 @@ Three parameters requires to be modified based on your path:
 
 (1) root_dir: `your/path/VOCdevkit/VOC2012` or `your/path/MSCOCO`
 
-(2) name_list_dir: `your/path/WeCLIP/datasets/voc` or `your/path/WeCLIP/datasets/coco`
+(2) name_list_dir: `your/path/WTCLIP/datasets/voc` or `your/path/WeCLIP/datasets/coco`
 
-(3) clip_pretrain_path: `your/path/WeCLIP/pretrained/ViT-B-16.pt`
+(3) clip_pretrain_path: `your/path/WTCLIP/pretrained/ViT-B-16.pt`
 
 For VOC, Modify them in `configs/voc_attn_reg.yaml`.
 
