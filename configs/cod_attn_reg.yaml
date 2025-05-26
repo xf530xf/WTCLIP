@@ -1,6 +1,6 @@
 dataset:
   root_dir: /data2/XF/Datasets/R2C7K/Camo/train/
-  name_list_dir: /data2/XF/KeYan/WeCLIP/datasets/cod
+  name_list_dir: /data2/XF/KeYan/WTCLIP/datasets/cod
   num_classes: 65
   crop_size: 320
   resize_range: [512, 2048]
@@ -38,6 +38,6 @@ scheduler:
   power: 1.0
 
 clip_init:
-  clip_pretrain_path: /data2/XF/KeYan/WeCLIP/pretrained/ViT-B-16.pt
+  clip_pretrain_path: /data2/XF/KeYan/WTCLIP/pretrained/ViT-B-16.pt
   embedding_dim: 256
   in_channels: [768,768,768,768]
